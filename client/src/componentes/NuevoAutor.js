@@ -16,7 +16,7 @@ const NuevoAutor = () => {
 
     const guardarAutor = e => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/autores", {
+        axios.post("http://localhost:8000/api/autores", {withCredentials: true}, {
             nombre,
             imagen,
             libros,
