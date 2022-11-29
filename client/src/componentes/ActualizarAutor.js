@@ -29,7 +29,7 @@ const ActualizarAutor = () => {
 
     const updateAutor = e => {
         e.preventDefault();
-        axios.put("http://localhost:8000/api/autores"+id, {
+        axios.put("http://localhost:8000/api/autores/"+id, {
             nombre, 
             imagen,
             libros,
