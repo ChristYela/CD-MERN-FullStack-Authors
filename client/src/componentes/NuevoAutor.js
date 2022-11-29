@@ -16,13 +16,13 @@ const NuevoAutor = () => {
 
     const guardarAutor = e => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/autores", {withCredentials: true}, {
+        axios.post("http://localhost:8000/api/autores", {
             nombre,
             imagen,
             libros,
             cuentos, 
             articulos
-        })
+        },{withCredentials: true})
             .then(res => history.push("/"))
             .catch(err => setErrors(err.response.data.errors))
         }
@@ -68,3 +68,4 @@ const NuevoAutor = () => {
 }
 
 export default NuevoAutor;
+
