@@ -16,7 +16,7 @@ const ActualizarAutor = () => {
     const history = useHistory();
 
     useEffect(()=> {
-        axios.get("http://localhost:8000/api/autores/"+id , {withCredentials: true} )
+        axios.get("http://localhost:8000/api/autores/"+id, {withCredentials: true}  )
             .then(res => {
                 setNombre(res.data.nombre);
                 setImagen(res.data.imagen);
@@ -29,13 +29,13 @@ const ActualizarAutor = () => {
 
     const updateAutor = e => {
         e.preventDefault();
-        axios.put("http://localhost:8000/api/autores"+id, {withCredentials: true}, {
+        axios.put("http://localhost:8000/api/autores"+id, {
             nombre, 
             imagen,
             libros,
             cuentos,
             articulos
-        } )
+        }, {withCredentials: true} )
         .then(res => history.push('/'))
         .catch(err => setErrors(err.response.data.errors));
     }   
