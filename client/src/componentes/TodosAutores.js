@@ -20,12 +20,15 @@ const TodosAutores = () => {
     }, [history])
 
     const borrarAutor = id => {
-        axios.delete("http://localhost:8000/api/autores/"+id)
+        if(window.confirm("Seguro que quieres borrar esta entrada?")){
+        axios.delete("http://localhost:8000/api/autores/"+id, {withCredentials: true})
             .then(res => {
                 //Actualizar la lista de autores por medio de filter
                 let nuevaLista = autores.filter(autor => autor._id !== id);
                 setAutores(nuevaLista);
             })
+            .catch(err=>console.log(err.response))
+        }
     }
 
     const cerrarSesion = () => {
